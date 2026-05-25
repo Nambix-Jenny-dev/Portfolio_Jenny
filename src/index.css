@@ -49,18 +49,6 @@ html.light {
   }
 }
 
-@layer components {
-  .btn-primary {
-    @apply px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700;
-  }
 
-  .bg-light {
-    @apply bg-[#f8fafc];
-  }
-
-  .bg-dark {
-    @apply bg-[#0f172a];
-  }
-}
 
 
