@@ -1,0 +1,66 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+/* Mode sombre (par défaut) */
+:root {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1a1f3a;
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1;
+  --border-color: rgba(56, 189, 248, 0.14);
+  --accent: #38bdf8;
+}
+
+/* Mode clair */
+html.light {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --border-color: rgba(15, 23, 42, 0.12);
+  --accent: #0ea5e9;
+}
+
+@layer base {
+  html {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-secondary);
+    background-color: var(--bg-primary);
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.75;
+    letter-spacing: 0.01em;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Playfair Display', serif;
+    color: var(--text-primary);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700;
+  }
+
+  .bg-light {
+    @apply bg-[#f8fafc];
+  }
+
+  .bg-dark {
+    @apply bg-[#0f172a];
+  }
+}
+
+
