@@ -4,6 +4,7 @@ import About from "../pages/public/About";
 import Projects from "../pages/public/Projects";
 import Projects from "../pages/public/Skills";
 import Contact from "../pages/public/Contact";
+import Formation from "../pages/public/Formation";
 
 export default function AppRouter() {
   return (
@@ -14,6 +15,7 @@ export default function AppRouter() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/skills" element={<Skills />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/formation" element={<Formation />} />
       </Routes>
     </BrowserRouter>
   );

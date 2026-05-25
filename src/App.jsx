@@ -1,12 +1,4 @@
 
-
-
-// import AppRouter from "./routes/AppRouter";
-
-// export default function App() {
-//   return <AppRouter />;
-// }
-
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { ThemeProvider } from "./context/ThemeContext";
@@ -16,6 +8,7 @@ import About from "./pages/public/About";
 import Skills from "./pages/public/Skills";
 import Projects from "./pages/public/Projects";
 import Contact from "./pages/public/Contact";
+import Formation from "./pages/public/Formation";
 
 function AppContent() {
   return (
@@ -28,6 +21,9 @@ function AppContent() {
         </div>
         <div id="about">
           <About />
+        </div>
+        <div id="formation">
+          <Formation />
         </div>
         <div id="skills">
           <Skills />

@@ -97,30 +97,33 @@ function Home() {
       </div>
   </div>
 
-  {/* RIGHT SIDE - IMAGE */}
-<div className="flex-1 flex justify-center md:justify-end">
-  <div className="relative group">
+    {/* RIGHT SIDE - IMAGE */}
+   <div className="flex-1 hidden md:flex justify-end">
+      <div className="relative group">
 
-    {/* Glow arrière contrôlé */}
-    <div
-      className="absolute -inset-6 rounded-full blur-3xl opacity-30 group-hover:opacity-50 transition"
-      style={{ backgroundColor: 'var(--accent)' }}
-    />
+        {/* Glow arrière */}
+        <div
+          className="absolute -inset-6 rounded-full blur-3xl opacity-30 group-hover:opacity-50 transition hidden md:block"
+          style={{ backgroundColor: 'var(--accent)' }}
+        />
 
-    {/* cadre lumineux */}
-    <div className="relative p-2 ">
+        {/* image wrapper responsive */}
+        <div className="relative p-2">
 
-      {/* image */}
-      <img
-        src={Jenny}
-        alt="Nambix"
-        className="w-72 md:w-96 h-[420px] object-cover rounded-[2.2rem]"
-      />
+          <img
+            src={Jenny}
+            alt="Nambix"
+            className="
+              object-cover rounded-full
+              w-28 h-28        /* MOBILE → petit rond */
+              md:w-96 md:h-[420px] md:rounded-[2.2rem]  /* DESKTOP → grande image */
+            "
+          />
 
+        </div>
+
+      </div>
     </div>
-  </div>
-</div>
-
 </div>
 
       {/* Stats */}

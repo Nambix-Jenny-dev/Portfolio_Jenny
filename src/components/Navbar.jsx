@@ -14,6 +14,7 @@ export default function Navbar() {
   const links = [
     { label: "Accueil", id: "home" },
     { label: "À propos", id: "about" },
+    { label: "Formation", id: "formation" },
     { label: "Compétences", id: "skills" },
     { label: "Projets", id: "projects" },
     { label: "Contact", id: "contact" },
