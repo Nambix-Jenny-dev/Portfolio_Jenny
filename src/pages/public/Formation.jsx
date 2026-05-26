@@ -26,7 +26,7 @@ function Education() {
   ];
 
   return (
-    <section id="education" className="py-20 px-6 mt-16">
+    <section id="formation" className="py-20 px-6 mt-16">
       <div className="max-w-6xl mx-auto">
 
         {/* Header */}

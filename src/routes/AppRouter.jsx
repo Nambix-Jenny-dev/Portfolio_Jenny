@@ -16,11 +16,11 @@ export default function AppRouter() {
         
         {/* ===== PUBLIC ===== */}
         <Route path="/" element={<Portfolio/>} />
-        <Route path="/about" element={<About />} />
+        {/* <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/skills" element={<Skills />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/formation" element={<Formation />} />
+        <Route path="/formation" element={<Formation />} /> */}
 
       {/* ===== ADMIN ===== */}
         <Route path="/admin/login" element={<Login />} />
