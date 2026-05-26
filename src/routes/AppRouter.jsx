@@ -7,7 +7,11 @@ import Contact from "../pages/public/Contact";
 import Formation from "../pages/public/Formation";
 import Login from "../pages/admin/Login";
 import Dashboard from "../pages/admin/Dashboard";
+import ManageProjects from "../pages/admin/ManageProjects";
+import ManageSkills from "../pages/admin/ManageSkills";
+import ManageMessages from "../pages/admin/ManageMessages";
 import Portfolio from "../pages/public/Portfolio";
+import AdminLayout from "../layouts/AdminLayout";
 
 export default function AppRouter() {
   return (
@@ -24,7 +28,31 @@ export default function AppRouter() {
 
       {/* ===== ADMIN ===== */}
         <Route path="/admin/login" element={<Login />} />
-        <Route path="/admin/dashboard" element={<Dashboard />} />
+
+        <Route path="/admin" element={<AdminLayout />}>
+
+          <Route
+            path="dashboard"
+            element={<Dashboard />}
+          />
+
+          <Route
+            path="projects"
+            element={<ManageProjects />}
+          />
+
+          <Route
+            path="skills"
+            element={<ManageSkills />}
+          />
+
+          <Route
+            path="messages"
+            element={<ManageMessages />}
+          />
+
+        </Route>
+            
       </Routes>
     </BrowserRouter>
   );
