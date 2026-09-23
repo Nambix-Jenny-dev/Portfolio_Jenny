@@ -1,4 +1,4 @@
- function Projects() {
+function Projects() {
   const projects = [
     {
       title: "Gestion de bibliothèque",
@@ -19,14 +19,14 @@
 
   return (
     <section id="projects" className="py-16">
-      <div className="max-w-6xl mx-auto px-6 md:px-12 rounded-[32px]  p-8 md:p-10 shadow-[0_24px_80px_rgba(15,23,42,0.18)]">
+      <div className="max-w-6xl mx-auto px-6 md:px-12 rounded-[32px] p-8 md:p-10" style={{ background: "var(--card-bg)", border: "1px solid var(--border-color)", boxShadow: "0 24px 80px var(--shadow-soft)" }}>
         <div className="mb-10">
-          <span className="inline-flex items-center gap-3 text-cyan-400 uppercase tracking-[0.3em] text-xs font-medium mb-4">
-            <span className="block w-12 h-px bg-cyan-400" />
+          <span className="inline-flex items-center gap-3 uppercase tracking-[0.3em] text-xs font-medium mb-4" style={{ color: "var(--accent)" }}>
+            <span className="block w-12 h-px" style={{ backgroundColor: "var(--accent)" }} />
             Réalisations
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-white">Projets</h2>
-          <p className="mt-4 text-gray-300 max-w-2xl leading-relaxed">
+          <h2 className="text-3xl md:text-4xl font-bold" style={{ color: "var(--text-primary)" }}>Projets</h2>
+          <p className="mt-4 max-w-2xl leading-relaxed" style={{ color: "var(--text-secondary)" }}>
             Des projets concrets construits avec des technologies modernes et pensés pour répondre à des besoins réels.
           </p>
         </div>
@@ -35,14 +35,15 @@
           {projects.map((project, index) => (
             <article
               key={index}
-              className="group rounded-3xl border border-white/10 bg-slate-950/80 p-6 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30"
+              className="group rounded-3xl p-6 transition duration-300 hover:-translate-y-1"
+              style={{ background: "var(--card-soft)", border: "1px solid var(--border-color)" }}
             >
-              <div className="mb-4 inline-flex rounded-full bg-cyan-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300">
+              <div className="mb-4 inline-flex rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em]" style={{ background: "var(--accent-soft)", color: "var(--accent)" }}>
                 Projet
               </div>
-              <h3 className="text-xl font-semibold text-white">{project.title}</h3>
-              <p className="text-gray-300 mt-3 leading-relaxed">{project.desc}</p>
-              <p className="text-cyan-400 text-sm mt-5 font-medium">{project.tech}</p>
+              <h3 className="text-xl font-semibold" style={{ color: "var(--text-primary)" }}>{project.title}</h3>
+              <p className="mt-3 leading-relaxed" style={{ color: "var(--text-secondary)" }}>{project.desc}</p>
+              <p className="text-sm mt-5 font-medium" style={{ color: "var(--accent)" }}>{project.tech}</p>
             </article>
           ))}
         </div>

@@ -1,14 +1,16 @@
-import { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { useContext, useState } from "react";
+import { FaBars, FaMoon, FaSun, FaTimes } from "react-icons/fa";
+import { ThemeContext } from "../context/ThemeContext";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const { isDark, toggleTheme } = useContext(ThemeContext);
 
   const scrollTo = (id) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
 
-    setOpen(false); // ferme menu mobile après clic
+    setOpen(false);
   };
 
   const links = [
@@ -31,9 +33,9 @@ export default function Navbar() {
           display: flex;
           justify-content: center;
           padding: 1rem 0;
-          background: rgba(2, 19, 49, 0.76);
+          background: var(--panel-bg);
           backdrop-filter: blur(18px);
-          border-bottom: 1px solid hsla(198, 92%, 15%, 0.14);
+          border-bottom: 1px solid var(--border-color);
         }
 
         .navbar-inner {
@@ -42,6 +44,7 @@ export default function Navbar() {
           align-items: center;
           justify-content: space-between;
           padding: 0 1.5rem;
+          gap: 1rem;
         }
 
         .navbar-logo {
@@ -49,8 +52,33 @@ export default function Navbar() {
           font-size: 1.7rem;
           font-weight: 600;
           letter-spacing: 0.08em;
-          color: #38bdf8;
+          color: var(--accent);
           user-select: none;
+        }
+
+        .nav-actions {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+        }
+
+        .theme-toggle {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 2.5rem;
+          height: 2.5rem;
+          border-radius: 9999px;
+          border: 1px solid var(--border-color);
+          background: var(--card-soft);
+          color: var(--text-primary);
+          cursor: pointer;
+          transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .theme-toggle:hover {
+          transform: translateY(-1px);
+          background: var(--accent-soft);
         }
 
         .navbar-links {
@@ -67,151 +95,127 @@ export default function Navbar() {
           font-size: 0.78rem;
           letter-spacing: 0.16em;
           text-transform: uppercase;
-          color: #cbd5e1;
+          color: var(--text-secondary);
           cursor: pointer;
           border-radius: 9999px;
           transition: 0.2s;
         }
 
         .navbar-links li:hover {
-          color: #fff;
-          background: rgba(56, 189, 248, 0.12);
+          color: var(--text-primary);
+          background: var(--accent-soft);
         }
 
-        
-
-        /* MOBILE */
         @media (max-width:768px){
-
-          .navbar-links{
+          .navbar-links {
             display:none;
           }
 
-          .menu-btn{
+          .menu-btn {
             display:flex;
             align-items:center;
             justify-content:center;
             width:42px;
             height:42px;
             border-radius:50%;
-            color:white;
+            color:var(--text-primary);
             cursor:pointer;
             font-size:1.2rem;
-
-            background:rgba(255,255,255,.05);
-            border:1px solid rgba(255,255,255,.08);
-
+            background:var(--card-soft);
+            border:1px solid var(--border-color);
             transition:.3s;
           }
 
-          .menu-btn:hover{
-            background:rgba(56,189,248,.15);
+          .menu-btn:hover {
+            background:var(--accent-soft);
             transform:scale(1.05);
           }
 
-          .mobile-menu{
+          .mobile-menu {
             position:absolute;
             top:85px;
             left:50%;
             transform:translateX(-50%);
-
             width:90%;
             max-width:340px;
-
-            background:rgba(15,23,42,.92);
+            background:var(--panel-bg);
             backdrop-filter:blur(25px);
-
-            border:1px solid rgba(56,189,248,.15);
+            border:1px solid var(--border-color);
             border-radius:24px;
-
             padding:1rem;
-
             display:flex;
             flex-direction:column;
             gap:.5rem;
-
-            box-shadow:
-            0 10px 30px rgba(0,0,0,.4);
-
+            box-shadow: 0 10px 30px var(--shadow-soft);
             animation:menuAnimation .3s ease;
           }
 
-          .mobile-menu li{
-
+          .mobile-menu li {
             padding:1rem;
             border-radius:14px;
-
             display:flex;
             align-items:center;
             justify-content:center;
-
-            color:#cbd5e1;
+            color:var(--text-secondary);
             font-size:.95rem;
             font-weight:500;
-
             transition:.3s;
           }
 
-          .mobile-menu li:hover{
-
-            background:rgba(56,189,248,.12);
-
-            color:white;
-
+          .mobile-menu li:hover {
+            background:var(--accent-soft);
+            color:var(--text-primary);
             transform:translateX(5px);
           }
 
-          @keyframes menuAnimation{
-
-            from{
+          @keyframes menuAnimation {
+            from {
               opacity:0;
-              transform:
-              translateX(-50%)
-              translateY(-20px);
+              transform:translateX(-50%) translateY(-20px);
             }
 
-            to{
+            to {
               opacity:1;
-              transform:
-              translateX(-50%)
-              translateY(0);
+              transform:translateX(-50%) translateY(0);
             }
-
           }
-
         }
 
         @media (min-width:769px){
-
-          .menu-btn{
+          .menu-btn {
             display:none;
           }
-
         }
       `}</style>
 
       <nav className="navbar">
         <div className="navbar-inner">
-
-          {/* Logo */}
           <div className="navbar-logo">Nambix</div>
 
-          {/* Desktop links */}
-          <ul className="navbar-links">
-            {links.map(({ label, id }) => (
-              <li key={id} onClick={() => scrollTo(id)}>
-                {label}
-              </li>
-            ))}
-          </ul>
+          <div className="nav-actions">
+            <button
+              type="button"
+              className="theme-toggle"
+              onClick={toggleTheme}
+              aria-label="Changer le thème"
+            >
+              {isDark ? <FaSun /> : <FaMoon />}
+            </button>
 
-          {/* Mobile button */}
+            <ul className="navbar-links">
+              {links.map(({ label, id }) => (
+                <li key={id} onClick={() => scrollTo(id)}>
+                  {label}
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <div className="menu-btn" onClick={() => setOpen(!open)}>
             {open ? <FaTimes /> : <FaBars />}
           </div>
         </div>
 
-        {/* Mobile menu */}
         {open && (
           <ul className="mobile-menu">
             {links.map(({ label, id }) => (

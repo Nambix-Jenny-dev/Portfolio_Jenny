@@ -8,7 +8,7 @@ function Education() {
       description:
         "Apprentissage des bases en développement logiciel, bases de données, algorithmes et architecture système.",
     },
-     {
+    {
       school: "ESPA Vontovorona",
       degree: "Master",
       parcour: "Technologie Energétique ",
@@ -28,56 +28,45 @@ function Education() {
   return (
     <section id="formation" className="py-20 px-6 mt-16">
       <div className="max-w-6xl mx-auto">
-
-        {/* Header */}
         <div className="mb-12">
-          <span className="inline-flex items-center gap-3 text-cyan-400 uppercase tracking-[0.3em] text-xs font-medium mb-4">
-            <span className="block w-12 h-px bg-cyan-400" />
-                Parcours académique
-            <span/>
+          <span className="inline-flex items-center gap-3 uppercase tracking-[0.3em] text-xs font-medium mb-4" style={{ color: "var(--accent)" }}>
+            <span className="block w-12 h-px" style={{ backgroundColor: "var(--accent)" }} />
+            Parcours académique
           </span>
 
-          <h2 className="text-3xl md:text-4xl font-bold mt-3 text-white">
+          <h2 className="text-3xl md:text-4xl font-bold mt-3" style={{ color: "var(--text-primary)" }}>
             Education
           </h2>
 
-          <p className="text-gray-300 mt-4 max-w-2xl">
+          <p className="mt-4 max-w-2xl" style={{ color: "var(--text-secondary)" }}>
             Mon parcours académique et mes formations en développement web.
           </p>
         </div>
 
-        {/* Timeline */}
-        <div className="space-y-8 border-l border-white/10 pl-6">
-
+        <div className="space-y-8 border-l pl-6" style={{ borderColor: "var(--border-color)" }}>
           {education.map((item, index) => (
             <div key={index} className="relative">
+              <div className="absolute -left-[9px] top-1 w-4 h-4 rounded-full" style={{ backgroundColor: "var(--accent)" }} />
 
-              {/* point timeline */}
-              <div className="absolute -left-[9px] top-1 w-4 h-4 bg-cyan-400 rounded-full" />
-
-              <div className="bg-slate-900/40 p-6 rounded-2xl border border-white/10 hover:border-cyan-400/30 transition">
-
-                <h3 className="text-xl font-semibold text-white">
+              <div className="p-6 rounded-2xl transition" style={{ background: "var(--card-bg)", border: "1px solid var(--border-color)" }}>
+                <h3 className="text-xl font-semibold" style={{ color: "var(--text-primary)" }}>
                   {item.degree}
                 </h3>
-                <p className="text-gray-400 text-sm mt-1">
+                <p className="text-sm mt-1" style={{ color: "var(--text-muted)" }}>
                   {item.parcour}
                 </p>
 
-                <p className="text-cyan-400 text-sm mt-1">
+                <p className="text-sm mt-1" style={{ color: "var(--accent)" }}>
                   {item.school} • {item.year}
                 </p>
 
-                <p className="text-gray-300 mt-3 text-sm leading-relaxed">
+                <p className="mt-3 text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                   {item.description}
                 </p>
-
               </div>
             </div>
           ))}
-
         </div>
-
       </div>
     </section>
   );

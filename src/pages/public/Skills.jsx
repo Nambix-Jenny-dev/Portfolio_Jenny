@@ -54,16 +54,16 @@ function Skills() {
 
   return (
     <section id="skills" className="py-16">
-      <div className="max-w-6xl mx-auto px-6 md:px-12  p-8 md:p-10 shadow-[0_24px_80px_rgba(15,23,42,0.18)]">
+      <div className="max-w-6xl mx-auto px-6 md:px-12 p-8 md:p-10" style={{ background: "var(--card-bg)", border: "1px solid var(--border-color)", borderRadius: "32px", boxShadow: "0 24px 80px var(--shadow-soft)" }}>
         <div className="mb-10">
-          <span className="inline-flex items-center gap-3 text-cyan-400 uppercase tracking-[0.3em] text-xs font-medium mb-4">
-            <span className="block w-12 h-px bg-cyan-400" />
+          <span className="inline-flex items-center gap-3 uppercase tracking-[0.3em] text-xs font-medium mb-4" style={{ color: "var(--accent)" }}>
+            <span className="block w-12 h-px" style={{ backgroundColor: "var(--accent)" }} />
             Mes compétences
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
+          <h2 className="text-3xl md:text-4xl font-bold" style={{ color: "var(--text-primary)" }}>
             Compétences
           </h2>
-          <p className="mt-4 text-gray-300 max-w-2xl leading-relaxed">
+          <p className="mt-4 max-w-2xl leading-relaxed" style={{ color: "var(--text-secondary)" }}>
             Un aperçu des technologies et outils que j'utilise pour construire des projets modernes et fiables.
           </p>
         </div>
@@ -72,26 +72,27 @@ function Skills() {
           {skills.map((skill, index) => (
             <div
               key={index}
-              className="group rounded-3xl border border-white/10 bg-slate-950/80 p-6 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30"
+              className="group rounded-3xl p-6 transition duration-300 hover:-translate-y-1"
+              style={{ background: "var(--card-soft)", border: "1px solid var(--border-color)" }}
             >
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xl font-semibold text-white">
+                <h3 className="text-xl font-semibold" style={{ color: "var(--text-primary)" }}>
                   {skill.title}
                 </h3>
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-300 text-sm font-semibold">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl text-sm font-semibold" style={{ background: "var(--accent-soft)", color: "var(--accent)" }}>
                   {skill.items.length}
                 </span>
               </div>
 
-              <ul className="mt-3 text-gray-300 space-y-3">
+              <ul className="mt-3 space-y-3" style={{ color: "var(--text-secondary)" }}>
                 {skill.items.map((item, i) => {
                   const Icon = iconMap[item];
                   return (
                     <li key={i} className="flex items-center gap-3 text-sm md:text-base">
                       {Icon ? (
-                        <Icon className="text-cyan-400 text-lg flex-shrink-0" />
+                        <Icon className="text-lg flex-shrink-0" style={{ color: "var(--accent)" }} />
                       ) : (
-                        <span className="inline-flex h-2.5 w-2.5 rounded-full bg-cyan-400 mt-1 flex-shrink-0" />
+                        <span className="inline-flex h-2.5 w-2.5 rounded-full mt-1 flex-shrink-0" style={{ backgroundColor: "var(--accent)" }} />
                       )}
                       {item}
                     </li>
